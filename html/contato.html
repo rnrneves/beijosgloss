@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Define o tipo de codificação de caracteres e a meta tag para responsividade em dispositivos móveis -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato - Beijos Gloss 💋</title>
+
+  <!-- Link para a fonte do Google Fonts (Poppins) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  
+  <style>
+    /* Estilo do botão de voltar */
+    .botao-voltar {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #b30000; /* Cor de fundo */
+      color: white; /* Cor do texto */
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none; /* Remove o sublinhado do link */
+      font-weight: bold;
+      transition: background-color 0.3s ease; /* Efeito de transição ao passar o mouse */
+    }
+
+    /* Estilo quando o botão de voltar é hover (passa o mouse por cima) */
+    .botao-voltar:hover {
+      background-color: #800000; /* Cor de fundo quando hover */
+    }
+
+    /* Estilo do corpo da página */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff0f5; /* Cor de fundo suave */
+      margin: 0;
+      color: #4d0000; /* Cor do texto */
+    }
+
+    /* Estilo do cabeçalho */
+    header {
+      background-color: #b30000; /* Cor de fundo do cabeçalho */
+      color: white; /* Cor do texto */
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Estilo do título no cabeçalho */
+    header h1 {
+      margin: 0;
+    }
+
+    /* Estilo para o formulário de contato */
+    .form-container {
+      max-width: 600px; /* Largura máxima do formulário */
+      margin: 40px auto; /* Margem automática para centralizar */
+      background-color: #fffafa; /* Cor de fundo do formulário */
+      border: 2px solid #ffd700; /* Borda dourada */
+      border-radius: 15px; /* Bordas arredondadas */
+      padding: 30px;
+    }
+
+    /* Estilo do título do formulário */
+    h2 {
+      text-align: center; /* Alinha o título no centro */
+      color: #800000; /* Cor do título */
+    }
+
+    /* Estilo para campos de input e textarea */
+    input, textarea {
+      width: 100%; /* Ocupa 100% da largura */
+      padding: 12px; /* Espaçamento interno */
+      margin: 10px 0; /* Margem vertical */
+      border-radius: 8px; /* Bordas arredondadas */
+      border: 1px solid #ccc; /* Cor de borda */
+      font-family: 'Poppins', sans-serif; /* Define a fonte */
+    }
+
+    /* Estilo do botão de envio do formulário */
+    button {
+      background-color: #b30000; /* Cor de fundo do botão */
+      color: white; /* Cor do texto */
+      border: none; /* Remove a borda */
+      padding: 10px 20px; /* Espaçamento interno */
+      border-radius: 8px; /* Bordas arredondadas */
+      font-weight: bold;
+      cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    }
+
+    /* Estilo do botão quando passa o mouse por cima */
+    button:hover {
+      background-color: #800000; /* Cor de fundo do botão quando hover */
+    }
+
+    /* Estilo do rodapé */
+    footer {
+      background-color: #800000; /* Cor de fundo do rodapé */
+      color: white; /* Cor do texto */
+      text-align: center; /* Alinha o texto no centro */
+      padding: 20px;
+      margin-top: 60px; /* Margem superior */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho da página com o nome da marca -->
+  <header>
+    <h1>Beijos Gloss 💋</h1>
+  </header>
+
+  <!-- Link para voltar à página inicial -->
+  <a href="/html/inicio.html" class="botao-voltar">← Voltar</a>
+
+  <!-- Formulário de contato -->
+  <div class="form-container">
+    <h2>💌 Fale com a Gente</h2>
+
+    <!-- Formulário que impede o envio padrão e exibe um alerta de sucesso -->
+    <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+      <input type="text" placeholder="Seu nome" required> <!-- Campo para nome -->
+      <input type="email" placeholder="Seu e-mail" required> <!-- Campo para e-mail -->
+      <textarea rows="5" placeholder="Sua mensagem..." required></textarea> <!-- Campo para mensagem -->
+      <button type="submit">Enviar Mensagem</button> <!-- Botão para enviar -->
+    </form>
+  </div>
+
+  <!-- Rodapé da página -->
+  <footer>
+    <p>&copy; 2025 Beijos Gloss. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

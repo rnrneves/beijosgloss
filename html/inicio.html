@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Configuração da codificação e responsividade -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beijos Gloss 💋</title>
+
+  <!-- Link para as fontes do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* --- Fundo gradiente animado --- */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #fff); /* Gradiente de fundo */
+      color: #4d0000;
+      position: relative;
+      overflow-x: hidden; /* Impede o scroll horizontal */
+      min-height: 100vh; /* Garante que a altura mínima seja a altura da tela */
+    }
+
+    /* Canvas para brilhinhos no fundo */
+    #brilhinhos {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Impede interação com o canvas */
+      z-index: 0; /* Garante que os brilhos fiquem atrás de outros elementos */
+    }
+
+    /* --- Título brilhante --- */
+    .titulo-brilhante {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #4d0000;
+      text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66cc, 0 0 30px #ff33aa; /* Efeito de brilho no texto */
+      animation: brilhar 2s ease-in-out infinite alternate; /* Animação de brilho */
+      position: relative;
+      z-index: 1; /* Garante que o título fique sobre outros elementos */
+    }
+
+    @keyframes brilhar {
+      from { text-shadow: 0 0 5px #ff99cc; }
+      to { text-shadow: 0 0 20px #ff66cc, 0 0 30px #ff33aa; }
+    }
+
+    /* --- Popup de boas-vindas com cupom --- */
+    #popup-cupom {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centraliza o popup */
+      background: linear-gradient(145deg, #ffe6f2, #ffb6c1); /* Gradiente do fundo do popup */
+      color: #4d0026;
+      padding: 30px 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(255, 0, 102, 0.4);
+      z-index: 9999;
+      max-width: 320px;
+      font-family: 'Poppins', sans-serif;
+      display: none; /* Inicialmente oculto */
+      animation: surgir 0.6s ease forwards; /* Animação de aparecimento */
+    }
+
+    /* Estilo para a imagem do popup */
+    #popup-cupom img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    /* Título do popup */
+    #popup-cupom h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* Descrição e cupom */
+    #popup-cupom p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cupom {
+      font-size: 20px;
+      font-weight: bold;
+      background: #ff4d88;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 15px;
+      display: inline-block;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      user-select: all; /* Permite selecionar o texto */
+    }
+
+    /* Botão de fechamento do popup */
+    #popup-cupom button {
+      background: #b30000;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #popup-cupom button:hover {
+      background: #800000;
+    }
+
+    @keyframes surgir {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    /* --- Header (Cabeçalho) --- */
+    header {
+      background-color: #b30000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      margin: 0;
+    }
+
+    header p {
+      margin: 5px 0 0 0;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
+    /* --- Navegação --- */
+    nav {
+      background-color: #800000;
+      text-align: center;
+      padding: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav a {
+      color: #ffd700;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Banner --- */
+    .banner {
+      background-image: url(img/maybelline-lifter-gloss-r-lip-gloss_front_photo_original.jpeg);
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 2px 2px 6px #000;
+      position: relative;
+      z-index: 1;
+    }
+
+    .banner h1 {
+      font-size: 2.5em;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 15px 30px;
+      border-radius: 12px;
+    }
+
+    /* --- Seções de conteúdo --- */
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section h3 {
+      color: #b30000;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    /* --- Produtos --- */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .product {
+      border: 2px solid #ffd700;
+      border-radius: 15px;
+      width: 220px;
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 0 0 10px #ffd700aa;
+      transition: transform 0.3s ease;
+    }
+
+    /* Efeito ao passar o mouse sobre o produto */
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff69b4cc;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h4 {
+      color: #800000;
+      margin: 10px 0 5px;
+    }
+
+    .product p {
+      font-size: 0.9em;
+    }
+
+    /* Botão para visualizar produto */
+    .botao {
+      display: inline-block;
+      background-color: #ffd700;
+      color: #800000;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .botao:hover {
+      background-color: #e6c200;
+    }
+
+    /* --- Carrinho --- */
+    #cart {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      background-color: #fff0f0;
+      border: 2px solid #ffd700;
+      border-radius: 15px;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #cart ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #cart li {
+      margin-bottom: 10px;
+    }
+
+    /* --- Formulário de Contato --- */
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fffafa;
+      border: 2px solid #ffd700;
+      border-radius: 15px;
+      padding: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #b30000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #800000;
+    }
+
+    /* --- Rodapé --- */
+    footer {
+      background-color: #800000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Canvas para brilhinhos -->
+  <canvas id="brilhinhos"></canvas>
+
+  <!-- Popup de boas-vindas -->
+  <div id="popup-cupom">
+    <img src="/img/imagem_fundo.webp" alt="Logo Beijos Gloss 💋" />
+    <h2>Bem-vinda à Beijos Gloss!</h2>
+    <p>Use o cupom abaixo e ganhe <strong>10% OFF</strong> na sua primeira compra!</p>
+    <div class="cupom">BEIJOS10</div>
+    <button onclick="fecharCupom()">Fechar</button>
+  </div>
+
+  <script>
+    // Função para iniciar brilhinhos no fundo
+    const canvas = document.getElementById("brilhinhos");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let particlesArray = [];
+
+    function setCanvasSize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    window.addEventListener('resize', () => {
+      setCanvasSize();
+    });
+
+    class Heart {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 10 + 8;
+        this.speedY = Math.random() * 0.8 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.6 + 0.4;
+        this.color = `rgba(255, 105, 180, ${this.opacity})`; // Rosa pink
+      }
+
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        if (this.y > height) {
+          this.y = -20;
+          this.x = Math.random() * width;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(0, -this.size / 2, -this.size, -this.size / 2, -this.size, 0);
+        ctx.bezierCurveTo(-this.size, this.size / 2, 0, this.size, 0, this.size * 1.5);
+        ctx.bezierCurveTo(0, this.size, this.size, this.size / 2, this.size, 0);
+        ctx.bezierCurveTo(this.size, -this.size / 2, 0, -this.size / 2, 0, 0);
+        ctx.closePath();
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function initBrilhinhos() {
+      setCanvasSize();
+      particlesArray = [];
+      let numberOfHearts = 50;
+
+      for (let i = 0; i < numberOfHearts; i++) {
+        particlesArray.push(new Heart());
+      }
+      animate();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particlesArray.forEach((heart) => {
+        heart.update();
+        heart.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    // Popup cupom
+    function mostrarCupom() {
+      if (!localStorage.getItem('cupomVisto')) {
+        document.getElementById('popup-cupom').style.display = 'block';
+        localStorage.setItem('cupomVisto', 'true');
+      }
+    }
+
+    function fecharCupom() {
+      document.getElementById('popup-cupom').style.display = 'none';
+    }
+
+    window.onload = function () {
+      setTimeout(() => {
+        mostrarCupom();
+      }, 3000);
+      initBrilhinhos();
+    };
+  </script>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Beijos Gloss 💋</h1>
+    <p>Brilhe com cada beijo</p>
+  </header>
+
+  <!-- Navegação -->
+  <nav>
+    <a href="inicio.html">Início</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="carrinho.html" target="_blank">Carrinho</a>
+    <a href="contato.html" target="_blank">Contato</a>
+    <a href="sobre.html">Quem Somos</a>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner">
+    <h1 class="titulo-brilhante">Descubra o brilho que encanta 💄</h1>
+  </div>
+
+  <!-- Produtos -->
+  <section class="section" id="produtos">
+    <h3>✨OS DO MOMENTO✨</h3>
+    <div class="products">
+      <div class="product">
+        <img src="/img/glossbaby.webp" alt="Gloss Rubi" />
+        <h4>Gloss Rosa Quartz</h4>
+        <p>Toque romântico com brilho delicado.</p>
+        <a href="/html/rosa-quartz.html" class="botao">Ver Produto</a>
+      </div>
+      <div class="product">
+        <img src="/img/maybelline-1.jpeg" alt="Gloss Dourado" />
+        <h4>Gloss Pink Power</h4>
+        <p>Rosa vibrante que exala atitude e brilho!</p>
+        <a href="/html/produto-pink-power.html" class="botao">Ver Produto</a>
+      </div>
+      <div class="product">
+        <img src="/img/glossdourado.webp" alt="Gloss Rosa Bebê" />
+        <h4>Gloss Nude Elegance</h4>
+        <p>Chique, discreto e cheio de classe.</p>
+        <a href="/html/nude-elegance.html" class="botao">Ver Produto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Beijos Gloss. Todos os direitos reservados.</p>
+    <p>Siga a gente: @beijosgloss 💋</p>
+  </footer>
+
+  <!-- Script para Carrinho -->
+  <script>
+    const cartItems = document.getElementById("cart-items");
+    let items = [];
+
+    function addToCart(productName) {
+      items.push(productName);
+      renderCart();
+    }
+
+    function renderCart() {
+      if (items.length === 0) {
+        cartItems.innerHTML = "<li>Nenhum item adicionado ainda.</li>";
+      } else {
+        cartItems.innerHTML = "";
+        items.forEach((item, index) => {
+          const li = document.createElement("li");
+          li.textContent = item + " ";
+          const removeBtn = document.createElement("button");
+          removeBtn.textContent = "✖";
+          removeBtn.style.marginLeft = "10px";
+          removeBtn.onclick = () => {
+            items.splice(index, 1);
+            renderCart();
+          };
+          li.appendChild(removeBtn);
+          cartItems.appendChild(li);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gloss Nude Elegance - Beijos Gloss 💋</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos CSS -->
+  <style>
+    /* Estilo do botão de voltar */
+    .botao-voltar {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #b30000;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .botao-voltar:hover {
+      background-color: #800000;
+    }
+
+    /* Estilos do cabeçalho */
+    header {
+      background-color: #b30000;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Link do carrinho no cabeçalho */
+    .ver-carrinho {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      text-decoration: none;
+      background-color: transparent;
+      font-size: 16px;
+      padding: 8px 12px;
+      border: 2px solid white;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .ver-carrinho:hover {
+      background-color: white;
+      color: #b30000;
+    }
+
+    /* Estilo do corpo da página */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fff0f5;
+      color: #4d0000;
+    }
+
+    header {
+      background-color: #b30000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin: 0;
+    }
+
+    /* Container principal da página */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Estilo do produto */
+    .produto {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .produto img {
+      width: 300px;
+      border-radius: 15px;
+    }
+
+    .info {
+      max-width: 500px;
+    }
+
+    .info h2 {
+      color: #b30000;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    /* Estilo do preço */
+    .info .preco {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #800000;
+    }
+
+    /* Título das avaliações */
+    h3 {
+      font-size: 1.8em;
+      color: #800000;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Estilo das avaliações */
+    .avaliacoes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .card h4 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #b30000;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* Estilo do rodapé */
+    footer {
+      background-color: #800000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    /* Estilos do cabeçalho com navegação */
+    header nav {
+      margin-top: 10px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+<!-- Estilo do botão de adicionar ao carrinho -->
+<style>
+  button {
+    padding: 10px 20px;
+    background-color: #b30000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+
+  button:hover {
+    background-color: #800000;
+  }
+</style>
+
+<!-- Script para adicionar o produto ao carrinho -->
+<script>
+  function adicionarAoCarrinho(nome, preco) {
+    const produto = { nome, preco };
+
+    let carrinho = localStorage.getItem("carrinho"); // Obtém o carrinho do localStorage
+    carrinho = carrinho ? JSON.parse(carrinho) : []; // Se o carrinho já existir, converte para um array; caso contrário, cria um array vazio
+
+    carrinho.push(produto); // Adiciona o novo produto ao carrinho
+    localStorage.setItem("carrinho", JSON.stringify(carrinho)); // Atualiza o carrinho no localStorage
+
+    alert(`${nome} foi adicionado ao carrinho! 💕`); // Exibe uma mensagem para o usuário
+  }
+</script>
+
+<body>
+  <!-- Cabeçalho com o nome da loja e link para o carrinho -->
+  <header>
+    <h1 class="logo">Beijos Gloss 💋</h1>
+    <a href="carrinho.html" class="ver-carrinho">🛒 Ver Carrinho</a>
+  </header>
+
+  <!-- Link para voltar à página principal -->
+  <a href="/html/produtos.html" class="botao-voltar">← Voltar à loja</a>
+
+  <!-- Container do produto -->
+  <div class="container">
+
+    <div class="produto">
+      <!-- Imagem do produto -->
+      <img src="/img/glossdourado.webp" alt="Gloss Nude Elegance">
+      
+      <div class="info">
+        <!-- Nome do produto -->
+        <h2>Gloss Nude Elegance</h2>
+        <!-- Descrição do produto -->
+        <p>Chique, discreto e cheio de classe. O Gloss Nude Elegance é ideal para realçar sua beleza com sofisticação e brilho natural.</p>
+        <!-- Preço do produto -->
+        <p class="preco">R$ 28,90</p>
+        <!-- Botão para adicionar ao carrinho -->
+        <button onclick="adicionarAoCarrinho('Gloss Nude Elegancez', 28.90)">Adicionar ao carrinho</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Seção de avaliações -->
+  <h3>O que as clientes estão dizendo 💬</h3>
+
+  <div class="avaliacoes">
+    <!-- Avaliação 1 -->
+    <div class="card">
+      <h4>Juliana - SC</h4>
+      <p>"A cor nude perfeita! Vai com qualquer maquiagem e deixa um ar super refinado."</p>
+    </div>
+    <!-- Avaliação 2 -->
+    <div class="card">
+      <h4>Suellen - PE</h4>
+      <p>"A textura é maravilhosa! Não é grudenta e tem um brilho lindo sem exagero."</p>
+    </div>
+    <!-- Avaliação 3 -->
+    <div class="card">
+      <h4>Jéssica - SP</h4>
+      <p>"Sou viciada em gloss nude e esse ganhou meu coração. Simplesmente perfeito 💖"</p>
+    </div>
+  </div>
+
+  <!-- Rodapé da página -->
+  <footer>
+    <p>&copy; 2025 Beijos Gloss. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

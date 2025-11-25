@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beijos Gloss 💋 - Loja</title>
+
+  <!-- FontAwesome para ícones -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Reset e base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff0f5;
+      color: #4d0000;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .botao-voltar:hover {
+  background-color: #800000;
+}
+
+    .botao-voltar {
+  display: inline-block;
+  margin-top: 30px;
+  background-color: #b30000;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+    /* Cabeçalho */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #b30000;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Logo */
+    .logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .logo i {
+      font-size: 1.8rem;
+      color: #ffd700;
+    }
+
+    /* Barra de busca */
+    .search-bar {
+      flex: 1;
+      margin: 0 2rem;
+      max-width: 400px;
+      position: relative;
+    }
+    .search-bar input[type="search"] {
+      width: 100%;
+      padding: 0.5rem 2.5rem 0.5rem 1rem;
+      border-radius: 20px;
+      border: none;
+      font-size: 1rem;
+    }
+    .search-bar button {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #b30000;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* Menu */
+    nav.menu {
+      display: flex;
+      gap: 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    nav.menu a {
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 15px;
+      transition: background-color 0.3s ease;
+    }
+    nav.menu a:hover,
+    nav.menu a:focus {
+      background-color: #800000;
+      outline: none;
+    }
+
+    /* Layout principal */
+    main {
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
+      display: flex;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    /* Sidebar filtros */
+    aside.sidebar {
+      flex: 0 0 220px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgb(179 0 0 / 0.1);
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    aside.sidebar h2 {
+      font-weight: 700;
+      color: #b30000;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 0.3rem;
+    }
+
+    aside.sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+    aside.sidebar ul li {
+      margin: 0.5rem 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    aside.sidebar ul li:hover {
+      color: #b30000;
+      font-weight: 600;
+    }
+
+    /* Produtos grid */
+    section.products {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    article.product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgb(179 0 0 / 0.15);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease;
+      position: relative;
+    }
+    article.product-card:hover {
+      box-shadow: 0 6px 15px rgb(179 0 0 / 0.3);
+    }
+
+    article.product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      border-radius: 8px;
+      user-select: none;
+    }
+
+    /* Botão coração */
+    .wishlist-icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      color: #b30000;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+    .wishlist-icon:hover {
+      background-color: #ffd700;
+      color: #800000;
+    }
+
+    article.product-card h3 {
+      margin: 1rem 0 0.4rem;
+      font-weight: 700;
+      color: #800000;
+      font-size: 1.2rem;
+    }
+
+    article.product-card p.description {
+      font-size: 0.95rem;
+      color: #4d0000;
+      flex-grow: 1;
+      margin: 0 0 0.8rem 0;
+    }
+
+    /* Avaliação em estrelas */
+    .rating {
+      color: #f5a623; /* amarelo estrelas */
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      user-select: none;
+    }
+
+    /* Preço com desconto */
+    .price-old {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+    }
+    .price-new {
+      font-weight: 700;
+      color: #b30000;
+      font-size: 1.15rem;
+    }
+    .payment-info {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 0.15rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Botão comprar */
+    .buy-btn {
+      background-color: #fff0b3;
+      border: 2px solid #ffd700;
+      color: #b30000;
+      font-weight: 700;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .buy-btn:hover {
+      background-color: #ffd700;
+      border-color: #b38f00;
+    }
+
+    /* Ícone carrinho */
+    .buy-btn i {
+      font-size: 1.1rem;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background-color: #800000;
+      color: white;
+      font-size: 0.9rem;
+      user-select: none;
+      margin-top: auto;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      aside.sidebar {
+        flex: none;
+        max-width: 100%;
+      }
+      section.products {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .search-bar {
+        max-width: 100%;
+        margin: 0 1rem;
+      }
+    }
+    @media (max-width: 400px) {
+      article.product-card img {
+        height: 180px;
+      }
+      .buy-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+      }
+      header {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .logo {
+        font-size: 1.5rem;
+      }
+      nav.menu {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+    
+</head>
+<body>
+  <header>
+    <div class="logo" aria-label="Beijos Gloss logo">
+      Beijos Gloss <i class="fa-solid fa-kiss"></i>
+    </div>
+
+    <div class="search-bar">
+      <input
+        type="search"
+        placeholder="O que você procura hoje? :)"
+        aria-label="Buscar produtos"
+      />
+      <button aria-label="Buscar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+    <a href="/html/inicio.html" class="botao-voltar">← Voltar à loja</a>
+
+  </header>
+
+  <main>
+    <aside class="sidebar" aria-label="Filtros e categorias">
+      <li><a href="blog.html">Blog 💄</a></li>
+      <section>
+        <h2>Subcategorias</h2>
+        <ul>
+          <li>Batom</li>
+          <li>Gloss</li>
+          <li>Contorno Labial</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Filtros</h2>
+        <ul>
+          <li>Preço</li>
+          <li>Apresentação</li>
+          <li>Classificação</li>
+          <li>Cores</li>
+        </ul>
+      </section>
+    </aside>
+
+    <section class="products" aria-label="Produtos disponíveis">
+      <article class="product-card" tabindex="0">
+        <button class="wishlist-icon" aria-label="Adicionar Gloss Rosa Quartz aos favoritos">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img
+          src="/img/glossbaby.webp"
+          alt="Gloss Rosa Quartz embalagem rosa com brilho delicado"
+        />
+        <h3>Gloss Rosa Quartz</h3>
+        <p class="description">Toque romântico com brilho delicado.</p>
+        <div class="rating" aria-label="Avaliação 4.5 de 5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <span>(8)</span>
+        </div>
+        <div>
+          <span class="price-old">R$ 22,90</span>
+          <span class="price-new">R$ 19,90</span>
+          <p class="payment-info">no PIX ou R$ 21,90 no cartão</p>
+        </div>
+        <button class="buy-btn" aria-label="Comprar Gloss Rosa Quartz">
+          <a href="/html/rosa-quartz.html" class="botao"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+
+        </button>
+      </article>
+
+      <article class="product-card" tabindex="0">
+        <button class="wishlist-icon" aria-label="Adicionar Gloss Pink Power aos favoritos">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="/img/maybelline-1.jpeg" alt="Gloss Pink Power embalagem rosa vibrante" />
+        <h3>Gloss Pink Power</h3>
+        <p class="description">Rosa vibrante que exala atitude e brilho!</p>
+        <div class="rating" aria-label="Avaliação 4.5 de 5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <span>(24)</span>
+        </div>
+        <div>
+          <span class="price-old">R$ 29,90</span>
+          <span class="price-new">R$ 24,90</span>
+          <p class="payment-info">no PIX ou R$ 26,90 no cartão</p>
+        </div>
+        <button class="buy-btn" aria-label="Comprar Gloss Pink Power">
+          <a href="/html/produto-pink-power.html" class="botao"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+        </button>
+      </article>
+
+      <article class="product-card" tabindex="0">
+        <button class="wishlist-icon" aria-label="Adicionar Gloss Nude Elegance aos favoritos">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="/img/glossdourado.webp" alt="Gloss Nude Elegance embalagem nude elegante" />
+        <h3>Gloss Nude Elegance</h3>
+        <p class="description">Chique, discreto e cheio de classe.</p>
+        <div class="rating" aria-label="Avaliação 5 de 5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <span>(30)</span>
+        </div>
+        <div>
+          <span class="price-old">R$ 20,90</span>
+          <span class="price-new">R$ 17,90</span>
+          <p class="payment-info">no PIX ou R$ 18,90 no cartão</p>
+        </div>
+        <button class="buy-btn" aria-label="Comprar Gloss Nude Elegance">
+          <a href="/html/nude-elegance.html" class="botao"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+        </button>
+      </article>
+
+      <article class="product-card" tabindex="0">
+        <button class="wishlist-icon" aria-label="Adicionar Gloss Cristal aos favoritos">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="/img/glosscristal.webp" alt="Gloss Cristal embalagem transparente" />
+        <h3>Gloss Cristal</h3>
+        <p class="description">Transparente, poderoso, combina com tudo.</p>
+        <div class="rating" aria-label="Avaliação 4.8 de 5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <span>(15)</span>
+        </div>
+        <div>
+          <span class="price-old">R$ 25,90</span>
+          <span class="price-new">R$ 21,90</span>
+          <p class="payment-info">no PIX ou R$ 23,00 no cartão</p>
+        </div>
+        <button class="buy-btn" aria-label="Comprar Gloss Cristal">
+          <a href="/html/cristal.html" class="botao"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+        </button>
+      </article>
+
+      <article class="product-card" tabindex="0">
+        <button class="wishlist-icon" aria-label="Adicionar Gloss Sedutor aos favoritos">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="/img/glosssedutor.webp" alt="Gloss Sedutor embalagem vinho sedutor" />
+        <h3>Gloss Sedutor</h3>
+        <p class="description">Para noites incríveis com muito glamour.</p>
+        <div class="rating" aria-label="Avaliação 4.3 de 5 estrelas">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <i class="fa-regular fa-star"></i>
+          <span>(18)</span>
+        </div>
+        <div>
+          <span class="price-old">R$ 26,90</span>
+          <span class="price-new">R$ 22,90</span>
+          <p class="payment-info">no PIX ou R$ 24,00 no cartão</p>
+          
+          
+        </div>
+       
+        <style>
+          .blog-link {
+            text-align: center;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            padding: 60px 20px;
+            border-top: 3px solid #b76e79;
+            margin-top: 50px;
+          }
+        
+          .blog-link h2 {
+            color: #8b1e3f;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+          }
+        
+          .blog-link p {
+            color: #5b2c2c;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+          }
+        
+          .botao-blog {
+            display: inline-block;
+            background-color: #b76e79;
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 1em;
+            transition: background 0.3s ease, transform 0.2s ease;
+          }
+        
+          .botao-blog:hover {
+            background-color: #8b1e3f;
+            transform: scale(1.05);
+          }
+        </style>
+                
+        <button class="buy-btn" aria-label="Comprar Gloss Sedutor">
+          <a href="/html/sedutor.html" class="botao"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+        </button>
+      </article>
+    </section>
+  </main>
+  <section class="blog-link">
+    <h2>Quer mais dicas e tendências? 💋</h2>
+    <p>Confira o nosso <strong>Guia de Beleza</strong> com tutoriais, cuidados e segredos para realçar sua beleza natural ✨</p>
+    <a href="blog.html" class="botao-blog"><i class="fa-solid fa-book-open"></i> Acesse o Blog</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Beijos Gloss. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

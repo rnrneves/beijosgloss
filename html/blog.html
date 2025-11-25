@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Beijos Gloss 💋</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #fff0f5;
+      color: #4d0000;
+    }
+
+    header {
+      background-color: #b30000;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-family: "Great Vibes", cursive;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .logo i {
+      color: #ffd700;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 600;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, #ffccd5, #fff0f5);
+      padding: 3rem 1rem;
+      color: #800000;
+      font-size: 1.3rem;
+      box-shadow: inset 0 -4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .hero h1 {
+      font-family: "Great Vibes", cursive;
+      font-size: 3rem;
+      color: #b30000;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .post-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(179, 0, 0, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(179, 0, 0, 0.25);
+    }
+
+    .post-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 1.2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .post-content h2 {
+      color: #b30000;
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .post-content p {
+      color: #4d0000;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-leia {
+      background-color: #fff0b3;
+      border: 2px solid #ffd700;
+      color: #b30000;
+      font-weight: 700;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .btn-leia:hover {
+      background-color: #ffd700;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #800000;
+      color: white;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      Beijos Gloss <i class="fa-solid fa-kiss"></i>
+    </div>
+    <nav>
+      <a href="/html/inicio.html">Início</a>
+      <a href="/html/produtos.html">Produtos</a>
+      <a href="/html/favoritos.html">Favoritos</a>
+      <a href="/html/carrinho.html">Carrinho</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Guia de Beleza 💄</h1>
+    <p>Descubra truques, dicas e tutoriais para realçar ainda mais o seu brilho!</p>
+  </section>
+
+  <main>
+    <article class="post-card">
+      <img src="/img/paleta.webp" alt="Escolhendo o gloss certo para seu tom de pele">
+      <div class="post-content">
+        <h2>💖 Como escolher o gloss perfeito para seu tom de pele</h2>
+        <p>Descubra qual tipo de brilho combina com você! Do nude elegante ao rosa vibrante, existe um gloss ideal para cada tom de pele.</p>
+        <a href="#" class="btn-leia">Ler artigo</a>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img src="/img/HIDRATAÇÃO.jpg" alt="Cuidados com os lábios">
+      <div class="post-content">
+        <h2>💋 5 cuidados essenciais para lábios sempre macios</h2>
+        <p>Hidratação é o segredo! Veja como manter seus lábios lindos, sem ressecamento e prontos para brilhar com gloss todos os dias.</p>
+        <a href="/html/artigo1.html" class="btn-leia">Ler artigo</a>
+      </div>
+      
+
+      
+    </article>
+
+    <article class="post-card">
+      <img src="/img/MAKEGLOW.jpeg" alt="Maquiagem com glow natural">
+      <div class="post-content">
+        <h2>✨ Make Glow: o segredo do brilho natural</h2>
+        <p>Aprenda a fazer uma make leve, com aquele glow irresistível que parece vir de dentro. Dica: o gloss certo é o toque final!</p>
+        <a href="#" class="btn-leia">Ler artigo</a>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img src="/img/aplicação.jpg" alt="Truques de aplicação de gloss">
+      <div class="post-content">
+        <h2>💄 Truques para aplicar gloss como uma profissional</h2>
+        <p>Quer aquele efeito espelhado perfeito? Veja as melhores técnicas de aplicação e os erros que você deve evitar.</p>
+        <a href="#" class="btn-leia">Ler artigo</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Beijos Gloss. Todos os direitos reservados.</p>
+    <p>Siga a gente no Instagram: <strong>@beijosgloss</strong> 💋</p>
+  </footer>
+</body>
+</html>
